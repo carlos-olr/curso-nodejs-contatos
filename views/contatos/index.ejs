@@ -1,0 +1,36 @@
+<% include ../header.ejs %>
+<header>
+    <h1>Ntalk</h1>
+    <h4>Lista de Contatos</h4>
+</header>
+<section>
+    <form action="/contato" method="post">
+        <label>Nome:</label>
+        <input type="text" name="contato[nome]" >
+        <label>E-mail:</label>
+        <input type="text" name="contato[email]" >
+        <button type="submit">Cadastrar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>E-mail</td>
+                <td>Ação</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% contatos.forEach(function (contato, index) { %>
+                <tr>
+                    <td><%- contato.nome %></td>
+                    <td><%- contato.email %></td>
+                    <td>
+                        <a href="/contato/<%- index %>">Detalhes</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>
+<% include ../exit.ejs %>
+<% include ../footer.ejs %>

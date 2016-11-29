@@ -1,0 +1,15 @@
+<% include ../header.ejs %>
+<header>
+    <h4>Ntalk - Editar contato</h4>
+</header>
+<section>
+    <form action="/contato/<%- id %>?_method=put" method="post">
+        <label>Nome:</label>
+        <input type="text" name="contato[nome]" value="<%- contato.nome %>">
+        <label>E-mail:</label>
+        <input type="text" name="contato[email]" value="<%- contato.email %>">
+        <button type="submit">Atualizar</button>
+    </form>
+</section>
+<% include ../exit.ejs %>
+<% include ../footer.ejs %>
